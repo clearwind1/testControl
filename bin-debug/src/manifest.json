@@ -1,0 +1,9 @@
+[
+	"GameUtils/BassPanel.ts",
+	"GameUtils/utils.ts",
+	"LoadingUI.ts",
+	"GameUtils/Http.ts",
+	"GameUtils/LoadingPanel.ts",
+	"test.ts",
+	"Main.ts"
+]
