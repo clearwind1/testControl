@@ -1,9 +1,9 @@
 [
-	"GameUtils/BassPanel.ts",
+	"GameUtils/GetResByany.ts",
 	"GameUtils/utils.ts",
-	"LoadingUI.ts",
+	"showlogo.ts",
 	"GameUtils/Http.ts",
-	"GameUtils/LoadingPanel.ts",
+	"LoadingUI.ts",
 	"test.ts",
 	"Main.ts"
 ]

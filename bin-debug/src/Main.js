@@ -67,14 +67,13 @@ var Main = (function (_super) {
         //initiate Resource loading library
         //RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         //RES.loadConfig("resource/resource.json", "resource/");
-        GameUtil.GameScene.init(this.stage);
-        GameUtil.GameScene.runscene(new GameUtil.LoadingPanel(this.createGameScene, this));
-        //RES.parseConfig(this.resourceJson,"resource/");
-        ////RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
+        RES.parseConfig(this.resourceJson, "resource/");
+        //RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         //RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
         //RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
         //RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         //RES.loadGroup("preload");
+        this.createGameScene();
     };
     /**
      * 配置文件加载完成,开始预加载preload资源组。
@@ -125,11 +124,15 @@ var Main = (function (_super) {
      * Create a game scene
      */
     __egretProto__.createGameScene = function () {
+        this.addChild(showlogo.getInstance());
         testGame.getInstance();
+        //testGame.getInstance().showlogo();
         //var num = window['inter'];
         //alert(num);
-        var bg = new egret.Bitmap(RES.getRes("bgImage"));
-        this.addChild(bg);
+        //var getres: GameUtil.GetResByany = new GameUtil.GetResByany("bgImage");
+        //this.addChild(getres);
+        //getres.x = this.stage.stageWidth/2;
+        //getres.y = this.stage.stageHeight/2;
         GameUtil.Http.getinstance();
         //var parm: Object = {
         //    openid: 34

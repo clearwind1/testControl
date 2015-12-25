@@ -1,9 +1,9 @@
 var game_file_list = [
-	"GameUtils/BassPanel.js",
+	"GameUtils/GetResByany.js",
 	"GameUtils/utils.js",
-	"LoadingUI.js",
+	"showlogo.js",
 	"GameUtils/Http.js",
-	"GameUtils/LoadingPanel.js",
+	"LoadingUI.js",
 	"test.js",
 	"Main.js"
 ];

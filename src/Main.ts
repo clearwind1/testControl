@@ -51,13 +51,14 @@ class Main extends egret.DisplayObjectContainer {
         //RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         //RES.loadConfig("resource/resource.json", "resource/");
 
-
         RES.parseConfig(this.resourceJson,"resource/");
         //RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
-        RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
-        RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
-        RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-        RES.loadGroup("preload");
+        //RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
+        //RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
+        //RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
+        //RES.loadGroup("preload");
+
+        this.createGameScene();
 
     }
 
@@ -137,18 +138,28 @@ class Main extends egret.DisplayObjectContainer {
 
     private textfield:egret.TextField;
 
+
+
+
     /**
      * 创建游戏场景
      * Create a game scene
      */
     private createGameScene():void {
+
+        this.addChild(showlogo.getInstance());
         testGame.getInstance();
+
+
+        //testGame.getInstance().showlogo();
 
         //var num = window['inter'];
         //alert(num);
 
-        var bg: egret.Bitmap = new egret.Bitmap(RES.getRes("bgImage"));
-        this.addChild(bg);
+        //var getres: GameUtil.GetResByany = new GameUtil.GetResByany("bgImage");
+        //this.addChild(getres);
+        //getres.x = this.stage.stageWidth/2;
+        //getres.y = this.stage.stageHeight/2;
 
 
         GameUtil.Http.getinstance();

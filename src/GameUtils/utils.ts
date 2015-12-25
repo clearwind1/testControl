@@ -184,14 +184,11 @@ module GameUtil
     {
         egret.localStorage.getItem(key);
     }
-    export function clearLocalData(key:string)
-    {
-        if(key != null)
-        {
+    export function clearLocalData(key:string) {
+        if (key != null) {
             egret.localStorage.removeItem(key);
         }
-        else
-        {
+        else {
             egret.localStorage.clear();
         }
 

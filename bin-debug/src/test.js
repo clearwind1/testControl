@@ -6,7 +6,11 @@ var testGame = (function () {
     }
     var __egretProto__ = testGame.prototype;
     __egretProto__.getnumber = function () {
+        showlogo.getInstance().showlogo();
         return Math.random();
+    };
+    __egretProto__.showlogo = function () {
+        showlogo.getInstance().showlogo();
     };
     testGame.getInstance = function () {
         if (this.instance == null) {

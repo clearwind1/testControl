@@ -2,9 +2,18 @@
  * Created by pior on 15/12/10.
  */
 
-class testGame{
+class testGame
+{
     public getnumber():number{
+
+        showlogo.getInstance().showlogo();
+
         return Math.random();
+    }
+
+    public showlogo():void
+    {
+        showlogo.getInstance().showlogo();
     }
 
     private static instance: testGame = null;
