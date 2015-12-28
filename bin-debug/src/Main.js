@@ -67,13 +67,15 @@ var Main = (function (_super) {
         //initiate Resource loading library
         //RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         //RES.loadConfig("resource/resource.json", "resource/");
-        RES.parseConfig(this.resourceJson, "resource/");
+        //RES.parseConfig(this.resourceJson,"resource/");
         //RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         //RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
         //RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
         //RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         //RES.loadGroup("preload");
-        this.createGameScene();
+        //this.createGameScene();
+        GameUtil.GameScene.init(this.stage);
+        GameUtil.GameScene.runscene(new Loading(this.createGameScene, this));
     };
     /**
      * 配置文件加载完成,开始预加载preload资源组。
@@ -124,8 +126,9 @@ var Main = (function (_super) {
      * Create a game scene
      */
     __egretProto__.createGameScene = function () {
-        this.addChild(showlogo.getInstance());
-        testGame.getInstance();
+        //this.addChild(showlogo.getInstance());
+        //testGame.getInstance();
+        GameUtil.GameScene.runscene(new LoginPanel());
         //testGame.getInstance().showlogo();
         //var num = window['inter'];
         //alert(num);
@@ -133,7 +136,7 @@ var Main = (function (_super) {
         //this.addChild(getres);
         //getres.x = this.stage.stageWidth/2;
         //getres.y = this.stage.stageHeight/2;
-        GameUtil.Http.getinstance();
+        //GameUtil.Http.getinstance();
         //var parm: Object = {
         //    openid: 34
         //}
