@@ -1,7 +1,8 @@
 [
 	"GameUtils/BassPanel.ts",
-	"GameUtils/GetResByany.ts",
+	"GameUtils/GetImageByUrl.ts",
 	"GameUtils/utils.ts",
+	"showlogo.ts",
 	"GameUtils/Menu.ts",
 	"Loading.ts",
 	"LoadingUI.ts",

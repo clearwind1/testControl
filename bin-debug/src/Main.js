@@ -126,16 +126,8 @@ var Main = (function (_super) {
      * Create a game scene
      */
     __egretProto__.createGameScene = function () {
-        //this.addChild(showlogo.getInstance());
-        //testGame.getInstance();
+        showlogo.getInstance();
         GameUtil.GameScene.runscene(new LoginPanel());
-        //testGame.getInstance().showlogo();
-        //var num = window['inter'];
-        //alert(num);
-        //var getres: GameUtil.GetResByany = new GameUtil.GetResByany("bgImage");
-        //this.addChild(getres);
-        //getres.x = this.stage.stageWidth/2;
-        //getres.y = this.stage.stageHeight/2;
         //GameUtil.Http.getinstance();
         //var parm: Object = {
         //    openid: 34

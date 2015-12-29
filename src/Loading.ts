@@ -44,17 +44,9 @@ class Loading extends GameUtil.BassPanel
         }
         RES.parseConfig(resjson,"resource/");
         //RES.getResByUrl(this.imageUrl,this.onComplete,this,RES.ResourceItem.TYPE_IMAGE);
-        var getres: GameUtil.GetResByany = new GameUtil.GetResByany("bgImage");
-        this.addChild(getres);
-        getres.x = this.mStageW/2;
-        getres.y = this.mStageH/2;
 
-        var logo = new GameUtil.GetResByany("logo_png");
-        this.addChild(logo);
-        logo.x = this.mStageW/2;
-        logo.y = this.mStageH/2;
+        RES.getResAsync("bgImage",this.onComplete,this);
 
-        RES.getResAsync("logoloading_png",this.onComplete,this);
     }
     private onComplete(event:any):void
     {
@@ -64,7 +56,15 @@ class Loading extends GameUtil.BassPanel
         this.loadingbar.anchorX = this.loadingbar.anchorY = 0.5;
         this.loadingbar.x = this.mStageW/2;
         this.loadingbar.y = this.mStageH/2;
+
         this.addChild(this.loadingbar);
+
+        this.addChild(showlogo.getInstance());
+        showlogo.getInstance().showlogo();
+
+        var loadingtext: egret.TextField = GameUtil.createTextField(this.mStageW/2,this.mStageH/2 + 280,50);
+        loadingtext.text = "好玩游戏即将开始";
+        this.addChild(loadingtext);
 
         //console.log("thiswidth=======",this.width);
 
@@ -112,6 +112,7 @@ class Loading extends GameUtil.BassPanel
             if(GameUtil.GameConfig.bRunFPS)
                 egret.Profiler.getInstance().run();
 
+            showlogo.getInstance().clearInterval();
             this.loadedfun.apply(this.thisObj);
         }
     }
@@ -135,7 +136,7 @@ class Loading extends GameUtil.BassPanel
     private onResourceProgress(event:RES.ResourceEvent):void {
         if (event.groupName == "preload") {
             //this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
-            this.setPro(event.itemsLoaded/event.itemsTotal);
+           // this.setPro(event.itemsLoaded/event.itemsTotal);
         }
     }
 

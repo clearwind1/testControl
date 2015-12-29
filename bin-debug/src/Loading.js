@@ -37,17 +37,9 @@ var Loading = (function (_super) {
                 }
             ]
         };
-        RES.parseConfig(resjson, "resource/");
-        //RES.getResByUrl(this.imageUrl,this.onComplete,this,RES.ResourceItem.TYPE_IMAGE);
-        var getres = new GameUtil.GetResByany("bgImage");
-        this.addChild(getres);
-        getres.x = this.mStageW / 2;
-        getres.y = this.mStageH / 2;
-        var logo = new GameUtil.GetResByany("logo_png");
-        this.addChild(logo);
-        logo.x = this.mStageW / 2;
-        logo.y = this.mStageH / 2;
-        RES.getResAsync("logoloading_png", this.onComplete, this);
+        //RES.parseConfig(resjson,"resource/");
+        RES.getResByUrl(this.imageUrl, this.onComplete, this, RES.ResourceItem.TYPE_IMAGE);
+        //RES.getResAsync("bgImage",this.onComplete,this);
     };
     __egretProto__.onComplete = function (event) {
         //this.y = this.mStageH - 200;
@@ -57,6 +49,11 @@ var Loading = (function (_super) {
         this.loadingbar.x = this.mStageW / 2;
         this.loadingbar.y = this.mStageH / 2;
         this.addChild(this.loadingbar);
+        this.addChild(showlogo.getInstance());
+        showlogo.getInstance().showlogo();
+        var loadingtext = GameUtil.createTextField(this.mStageW / 2, this.mStageH / 2 + 280, 50);
+        loadingtext.text = "好玩游戏即将开始";
+        this.addChild(loadingtext);
         //console.log("thiswidth=======",this.width);
         //egret.MainContext.instance.stage.addChild(this);
         this.loadingRes();
@@ -94,6 +91,7 @@ var Loading = (function (_super) {
             RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
             if (GameUtil.GameConfig.bRunFPS)
                 egret.Profiler.getInstance().run();
+            showlogo.getInstance().clearInterval();
             this.loadedfun.apply(this.thisObj);
         }
     };
@@ -114,8 +112,6 @@ var Loading = (function (_super) {
      */
     __egretProto__.onResourceProgress = function (event) {
         if (event.groupName == "preload") {
-            //this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
-            this.setPro(event.itemsLoaded / event.itemsTotal);
         }
     };
     __egretProto__.setPro = function (persend) {

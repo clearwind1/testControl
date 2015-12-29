@@ -45,6 +45,15 @@ var LoginPanel = (function (_super) {
         this.inputpsw.textColor = 0x000000;
         this.inputpsw.displayAsPassword = true;
         this.addChild(this.inputpsw);
+        //忘记密码按钮
+        var fpswbtn = new GameUtil.Menu(this, "blueframe_png", "blueframe_png", this.forgetpsw);
+        fpswbtn.setScaleMode(0.9);
+        fpswbtn.addButtonText("忘记密码", -55);
+        fpswbtn.getBtnText().size = 40;
+        fpswbtn.setBtnScale(0.7, 1);
+        fpswbtn.x = 815;
+        fpswbtn.y = 980;
+        this.addChild(fpswbtn);
         //登录按钮
         var loginbtn = new GameUtil.Menu(this, "blueframe_png", "blueframe_png", this.login);
         loginbtn.setScaleMode();
@@ -53,9 +62,21 @@ var LoginPanel = (function (_super) {
         loginbtn.x = 765;
         loginbtn.y = 1125;
         this.addChild(loginbtn);
+        //注册按钮
+        var regbtn = new GameUtil.Menu(this, "greenframe_png", "greenframe_png", this.register);
+        regbtn.setScaleMode();
+        regbtn.addButtonText("立即注册");
+        regbtn.getBtnText().size = 40;
+        regbtn.x = 315;
+        regbtn.y = 1125;
+        this.addChild(regbtn);
     };
     __egretProto__.login = function () {
         window['JavaScriptInterface'].showToast("fsdafdsa");
+    };
+    __egretProto__.forgetpsw = function () {
+    };
+    __egretProto__.register = function () {
     };
     return LoginPanel;
 })(GameUtil.BassPanel);

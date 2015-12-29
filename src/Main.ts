@@ -150,22 +150,8 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene():void {
 
-        //this.addChild(showlogo.getInstance());
-        //testGame.getInstance();
-
-
+        showlogo.getInstance();
         GameUtil.GameScene.runscene(new LoginPanel());
-
-        //testGame.getInstance().showlogo();
-
-        //var num = window['inter'];
-        //alert(num);
-
-        //var getres: GameUtil.GetResByany = new GameUtil.GetResByany("bgImage");
-        //this.addChild(getres);
-        //getres.x = this.stage.stageWidth/2;
-        //getres.y = this.stage.stageHeight/2;
-
 
         //GameUtil.Http.getinstance();
 
