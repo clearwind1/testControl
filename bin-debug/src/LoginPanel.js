@@ -11,6 +11,9 @@ var LoginPanel = (function (_super) {
         this.showlogin();
     };
     __egretProto__.showlogin = function () {
+        //底灰
+        //var bgcover: egret.Shape = GameUtil.createRect(0,0,1080,1980,1,0xe9e9e9);
+        //this.addChild(bgcover);
         var bg = GameUtil.createBitmapByName("floatFrame_png");
         bg.x = this.mStageW / 2;
         bg.y = this.mStageH / 2;
@@ -26,9 +29,11 @@ var LoginPanel = (function (_super) {
         nametext.text = "账号";
         nametext.textColor = 0x3bafda;
         this.addChild(nametext);
-        this.inputname = GameUtil.createInputText(265, 860, 40, 640, 70, 100);
+        this.inputname = GameUtil.createInputText(295, 860, 40, 610, 70, 100);
         this.inputname.anchorY = 0.5;
         this.inputname.textColor = 0x000000;
+        this.inputname.setBaseText("手机/用户名/邮箱", 0.3);
+        this.inputname.setBaseTextSize(30, 40);
         this.addChild(this.inputname);
         var pswinputframe = GameUtil.createBitmapByName("inputframe_png");
         pswinputframe.anchorX = 0;
@@ -40,9 +45,10 @@ var LoginPanel = (function (_super) {
         pswtext.text = "密码";
         pswtext.textColor = 0x3bafda;
         this.addChild(pswtext);
-        this.inputpsw = GameUtil.createInputText(265, 980, 40, 350, 70, 100);
+        this.inputpsw = GameUtil.createInputText(295, 980, 40, 310, 70, 100);
         this.inputpsw.anchorY = 0.5;
         this.inputpsw.textColor = 0x000000;
+        this.inputpsw.setBaseTextSize(40, 40);
         this.inputpsw.displayAsPassword = true;
         this.addChild(this.inputpsw);
         //忘记密码按钮
@@ -72,11 +78,15 @@ var LoginPanel = (function (_super) {
         this.addChild(regbtn);
     };
     __egretProto__.login = function () {
-        window['JavaScriptInterface'].showToast("fsdafdsa");
+        //window['JavaScriptInterface'].showToast("fsdafdsa");
+        GameUtil.GameScene.runscene(new UserPagePanel());
+        //this.addChild(new UserPagePanel());
     };
     __egretProto__.forgetpsw = function () {
+        this.addChild(new ResetPasswordPanel());
     };
     __egretProto__.register = function () {
+        this.addChild(new RegisterPanel());
     };
     return LoginPanel;
 })(GameUtil.BassPanel);

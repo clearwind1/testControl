@@ -3,8 +3,8 @@
  */
 class LoginPanel extends GameUtil.BassPanel
 {
-    private inputname: egret.TextField;
-    private inputpsw: egret.TextField;
+    private inputname: GameUtil.InputTextFiled;
+    private inputpsw: GameUtil.InputTextFiled;
 
     public constructor()
     {
@@ -17,6 +17,11 @@ class LoginPanel extends GameUtil.BassPanel
 
     private showlogin()
     {
+
+        //底灰
+        //var bgcover: egret.Shape = GameUtil.createRect(0,0,1080,1980,1,0xe9e9e9);
+        //this.addChild(bgcover);
+
         var bg: egret.Bitmap = GameUtil.createBitmapByName("floatFrame_png");
         bg.x = this.mStageW/2;
         bg.y = this.mStageH/2;
@@ -36,9 +41,11 @@ class LoginPanel extends GameUtil.BassPanel
         nametext.textColor = 0x3bafda;
         this.addChild(nametext);
 
-        this.inputname = GameUtil.createInputText(265,860,40,640,70,100);
+        this.inputname = GameUtil.createInputText(295,860,40,610,70,100);
         this.inputname.anchorY = 0.5;
         this.inputname.textColor = 0x000000;
+        this.inputname.setBaseText("手机/用户名/邮箱",0.3);
+        this.inputname.setBaseTextSize(30,40);
         this.addChild(this.inputname);
 
         var pswinputframe: egret.Bitmap = GameUtil.createBitmapByName("inputframe_png");
@@ -53,9 +60,10 @@ class LoginPanel extends GameUtil.BassPanel
         pswtext.textColor = 0x3bafda;
         this.addChild(pswtext);
 
-        this.inputpsw = GameUtil.createInputText(265,980,40,350,70,100);
+        this.inputpsw = GameUtil.createInputText(295,980,40,310,70,100);
         this.inputpsw.anchorY = 0.5;
         this.inputpsw.textColor = 0x000000;
+        this.inputpsw.setBaseTextSize(40,40);
         this.inputpsw.displayAsPassword = true;
         this.addChild(this.inputpsw);
 
@@ -91,17 +99,19 @@ class LoginPanel extends GameUtil.BassPanel
 
     private login():void
     {
-        window['JavaScriptInterface'].showToast("fsdafdsa");
+        //window['JavaScriptInterface'].showToast("fsdafdsa");
+        GameUtil.GameScene.runscene(new UserPagePanel());
+        //this.addChild(new UserPagePanel());
     }
 
     private forgetpsw():void
     {
-
+        this.addChild(new ResetPasswordPanel());
     }
 
     private register():void
     {
-
+        this.addChild(new RegisterPanel());
     }
 
 }

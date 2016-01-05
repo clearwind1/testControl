@@ -9,10 +9,10 @@ var showlogo = (function (_super) {
     }
     var __egretProto__ = showlogo.prototype;
     __egretProto__.init = function () {
-        this.logo = new GameUtil.GetImageByUrl("/resource/assets/logo.png");
+        this.logo = new GameUtil.GetResByany("logo_png");
         this.logo.x = egret.MainContext.instance.stage.stageWidth / 2;
         this.logo.y = egret.MainContext.instance.stage.stageHeight / 2;
-        this.logoloading = new GameUtil.GetImageByUrl("/resource/assets/logoloading.png");
+        this.logoloading = new GameUtil.GetResByany("logoloading_png");
         this.logoloading.x = egret.MainContext.instance.stage.stageWidth / 2;
         this.logoloading.y = egret.MainContext.instance.stage.stageHeight / 2;
     };

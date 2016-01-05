@@ -150,6 +150,7 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene():void {
 
+        egret.StageDelegate.getInstance().setDesignSize(1980, 1080);
         showlogo.getInstance();
         GameUtil.GameScene.runscene(new LoginPanel());
 

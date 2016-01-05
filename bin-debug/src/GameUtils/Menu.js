@@ -79,7 +79,12 @@ var GameUtil;
         __egretProto__.addButtonText = function (text, offx, offy) {
             if (offx === void 0) { offx = 0; }
             if (offy === void 0) { offy = 0; }
-            this.mTextField = GameUtil.createTextField(this.btnImg.texture.textureWidth / 2 + offx, this.btnImg.texture.textureHeight / 2 + offy, 20);
+            if (this.btnImg.texture != null) {
+                this.mTextField = GameUtil.createTextField(this.btnImg.texture.textureWidth / 2 + offx, this.btnImg.texture.textureHeight / 2 + offy, 20);
+            }
+            else {
+                this.mTextField = GameUtil.createTextField(offx, offy, 20);
+            }
             this.mTextField.text = text;
             this.addChild(this.mTextField);
         };

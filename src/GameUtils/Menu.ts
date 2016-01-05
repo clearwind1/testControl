@@ -95,7 +95,14 @@ module GameUtil
 
         public addButtonText(text:string,offx:number=0,offy:number=0):void
         {
-            this.mTextField = createTextField(this.btnImg.texture.textureWidth/2+offx,this.btnImg.texture.textureHeight/2+offy,20);
+            if(this.btnImg.texture != null){
+                this.mTextField = createTextField(this.btnImg.texture.textureWidth/2+offx,this.btnImg.texture.textureHeight/2+offy,20);
+            }
+            else
+            {
+                this.mTextField = createTextField(offx,offy,20);
+            }
+
             this.mTextField.text = text;
             this.addChild(this.mTextField);
         }

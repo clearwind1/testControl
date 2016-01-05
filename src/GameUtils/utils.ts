@@ -63,9 +63,9 @@ module GameUtil
      * @param maxChars 最大输入数量
      * @returns {egret.TextField}
      */
-    export function createInputText(x:number,y:number,size:number,width:number,height:number,maxChars:number = 0):egret.TextField
+    export function createInputText(x:number,y:number,size:number,width:number,height:number,maxChars:number = 0):GameUtil.InputTextFiled
     {
-        var textfiled:egret.TextField = new egret.TextField();
+        var textfiled: GameUtil.InputTextFiled = new GameUtil.InputTextFiled();
         textfiled.type = egret.TextFieldType.INPUT;
         textfiled.text = "";
         textfiled.x = x;

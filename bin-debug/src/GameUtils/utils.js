@@ -67,7 +67,7 @@ var GameUtil;
      */
     function createInputText(x, y, size, width, height, maxChars) {
         if (maxChars === void 0) { maxChars = 0; }
-        var textfiled = new egret.TextField();
+        var textfiled = new GameUtil.InputTextFiled();
         textfiled.type = egret.TextFieldType.INPUT;
         textfiled.text = "";
         textfiled.x = x;

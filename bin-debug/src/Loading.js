@@ -37,9 +37,9 @@ var Loading = (function (_super) {
                 }
             ]
         };
-        //RES.parseConfig(resjson,"resource/");
-        RES.getResByUrl(this.imageUrl, this.onComplete, this, RES.ResourceItem.TYPE_IMAGE);
-        //RES.getResAsync("bgImage",this.onComplete,this);
+        RES.parseConfig(resjson, "resource/");
+        //RES.getResByUrl(this.imageUrl,this.onComplete,this,RES.ResourceItem.TYPE_IMAGE);
+        RES.getResAsync("bgImage", this.onComplete, this);
     };
     __egretProto__.onComplete = function (event) {
         //this.y = this.mStageH - 200;

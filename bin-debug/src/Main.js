@@ -126,6 +126,7 @@ var Main = (function (_super) {
      * Create a game scene
      */
     __egretProto__.createGameScene = function () {
+        egret.StageDelegate.getInstance().setDesignSize(1980, 1080);
         showlogo.getInstance();
         GameUtil.GameScene.runscene(new LoginPanel());
         //GameUtil.Http.getinstance();

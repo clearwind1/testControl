@@ -39,9 +39,19 @@ module GameUtil
             this.content.addChild(item);
         }
 
+        public clearItem():void
+        {
+            this.content.removeChildren();
+        }
+
         public getScorllTop():number
         {
             return this.scrollview.scrollTop;
+        }
+
+        public setScorllTop(value:number):void
+        {
+            this.scrollview.scrollTop = value;
         }
 
     }

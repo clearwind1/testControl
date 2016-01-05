@@ -1,11 +1,18 @@
 [
 	"GameUtils/BassPanel.ts",
-	"GameUtils/GetImageByUrl.ts",
+	"GameUtils/InputTextFiled.ts",
+	"GameUtils/GetResByany.ts",
 	"GameUtils/utils.ts",
-	"showlogo.ts",
 	"GameUtils/Menu.ts",
+	"showlogo.ts",
 	"Loading.ts",
+	"RegisterPanel.ts",
+	"ResetPasswordPanel.ts",
+	"UserPagePanel.ts",
+	"GameInputTF.ts",
+	"GameUtils/ScrollView.ts",
 	"LoadingUI.ts",
 	"LoginPanel.ts",
-	"Main.ts"
+	"Main.ts",
+	"RechargePanel.ts"
 ]
